@@ -41,16 +41,32 @@ class MainActivity : AppCompatActivity() {
 
             when(it.itemId){
                 R.id.dashboard -> {
-                    Toast.makeText(this,"dashboard item is clicked",Toast.LENGTH_SHORT).show()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frame,DashboardFragment())
+                        .addToBackStack("Dashboard")
+                        .commit()
+                    drawerLayout.closeDrawers()
                 }
                 R.id.favorites -> {
-                    Toast.makeText(this,"favorites is clicked",Toast.LENGTH_SHORT).show()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frame,FavoritesFragment())
+                        .addToBackStack("Favorites")
+                        .commit()
+                    drawerLayout.closeDrawers()
                 }
                 R.id.profile -> {
-                    Toast.makeText(this,"profile is clicked", Toast.LENGTH_LONG).show()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frame,ProfileFragment())
+                        .addToBackStack("Profile")
+                        .commit()
+                    drawerLayout.closeDrawers()
                 }
                 R.id.aboutApp -> {
-                    Toast.makeText(this,"about app is clicked",Toast.LENGTH_SHORT).show()
+                    supportFragmentManager.beginTransaction()
+                        .replace(R.id.frame,AboutAppFragment())
+                        .addToBackStack("About App")
+                        .commit()
+                    drawerLayout.closeDrawers()
                 }
             }
 
