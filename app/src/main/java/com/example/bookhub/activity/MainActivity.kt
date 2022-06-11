@@ -1,16 +1,18 @@
-package com.example.bookhub
+package com.example.bookhub.activity
 
-import android.graphics.drawable.GradientDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import android.widget.FrameLayout
-import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
+import com.example.bookhub.*
+import com.example.bookhub.fragment.AboutAppFragment
+import com.example.bookhub.fragment.DashboardFragment
+import com.example.bookhub.fragment.FavoritesFragment
+import com.example.bookhub.fragment.ProfileFragment
 import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -36,7 +38,10 @@ class MainActivity : AppCompatActivity() {
 
         openDashboard()
 
-        val actionBarDrawerToggle = ActionBarDrawerToggle(this@MainActivity,drawerLayout,R.string.open_drawer,R.string.close_drawer)
+        val actionBarDrawerToggle = ActionBarDrawerToggle(this@MainActivity,drawerLayout,
+            R.string.open_drawer,
+            R.string.close_drawer
+        )
         drawerLayout.addDrawerListener(actionBarDrawerToggle)
         actionBarDrawerToggle.syncState()
 
@@ -54,7 +59,7 @@ class MainActivity : AppCompatActivity() {
             when(it.itemId){
                 R.id.dashboard -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.frame,DashboardFragment())
+                        .replace(R.id.frame, DashboardFragment())
 
                         .commit()
                     drawerLayout.closeDrawers()
@@ -63,7 +68,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.favorites -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.frame,FavoritesFragment())
+                        .replace(R.id.frame, FavoritesFragment())
 
                         .commit()
                     drawerLayout.closeDrawers()
@@ -72,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.profile -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.frame,ProfileFragment())
+                        .replace(R.id.frame, ProfileFragment())
 
                         .commit()
                     drawerLayout.closeDrawers()
@@ -81,7 +86,7 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.aboutApp -> {
                     supportFragmentManager.beginTransaction()
-                        .replace(R.id.frame,AboutAppFragment())
+                        .replace(R.id.frame, AboutAppFragment())
 
                         .commit()
                     drawerLayout.closeDrawers()
