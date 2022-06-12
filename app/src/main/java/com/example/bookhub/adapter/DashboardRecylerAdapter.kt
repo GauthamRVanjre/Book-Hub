@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bookhub.R
 import com.example.bookhub.model.Book
@@ -26,6 +28,10 @@ class DashboardRecylerAdapter(val context: Context,val itemList : ArrayList<Book
         holder.textBookPrice.text = book.BookCost
         holder.textBookRating.text = book.BookRating
         holder.textBookImage.setImageResource(book.BookImage)
+
+        holder.llContext.setOnClickListener {
+            Toast.makeText(context,"clicked on ${holder.textBookName.text}",Toast.LENGTH_SHORT).show()
+        }
     }
 
     override fun getItemCount(): Int {
@@ -38,5 +44,7 @@ class DashboardRecylerAdapter(val context: Context,val itemList : ArrayList<Book
         val textBookPrice : TextView = view.findViewById(R.id.txtBookPrice)
         val textBookRating : TextView = view.findViewById(R.id.txtBookRating)
         val textBookImage : ImageView = view.findViewById(R.id.imgBookImage)
+
+        val llContext : LinearLayout = view.findViewById(R.id.llcontent)
     }
 }
