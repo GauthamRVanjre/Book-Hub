@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+
+    id 'kotlin-kapt'
 }
 
 android {
@@ -50,4 +52,10 @@ dependencies {
 
     //Picasso library dependency
     implementation 'com.squareup.picasso:picasso:2.8'
+
+    //Room dependency
+    def room_version = "2.4.2"
+
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
 }
